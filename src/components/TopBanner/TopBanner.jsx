@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import React, { Component, Fragment } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 
 class TopBanner extends Component {
   render() {
@@ -24,4 +24,4 @@ class TopBanner extends Component {
   }
 }
 
-export default TopBanner
+export default TopBanner;

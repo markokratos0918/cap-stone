@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { Navbar,Nav,Container } from 'react-bootstrap'
+import React, { Component, Fragment } from 'react';
+import { Navbar,Nav,Container } from 'react-bootstrap';
 import whiteLogo from '../../asset/image/logo_white.png';
 import blackLogo from '../../asset/image/logo_black.png';
 import '../../asset/css/custom.css';
@@ -39,7 +39,7 @@ class TopNavigation extends Component {
 
 <Navbar className={this.state.navBarBack} collapseOnSelect fixed="top" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand className={this.state.navBarTitle} href="#home"><img src={this.state.navBarLogo} /></Navbar.Brand>
+        <Navbar.Brand className={this.state.navBarTitle} href="#home"><img src={this.state.navBarLogo} alt=""/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -64,4 +64,4 @@ class TopNavigation extends Component {
      }
 }
 
-export default TopNavigation
+export default TopNavigation;
