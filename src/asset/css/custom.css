@@ -257,3 +257,18 @@
     font-size: 15px;
     font-weight: 400;
 }
+.aboutUsImage{
+	width: 450px;
+	height: 450px;
+	background-color: #051b35;
+	border-radius: 70%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	float: none;
+}
+.aboutImg{
+	height: 70%;
+	margin-top: 100px;
+	margin-bottom: 40px;
+}
