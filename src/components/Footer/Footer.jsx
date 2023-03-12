@@ -28,11 +28,11 @@ render() {
             </Col>
 
             <Col lg="3" md={6} sm={12} className="p-5 text-justify">
-            <h2 className="footerName text-center">Address </h2>
+            <h2 className="footerName">Address </h2>
             </Col>
 
             <Col lg="3" md={6} sm={12} className="p-5 text-justify">
-            <h2 className="footerName text-center">Information </h2>
+            <h2 className="footerName">Information </h2>
             <a className="footerLink" href="#">
                 About Me{" "}
             </a>{" "}
@@ -48,7 +48,7 @@ render() {
             </Col>
 
             <Col lg="3" md={6} sm={12} className="p-5 text-justify">
-            <h2 className="footerName text-center">Policy </h2>
+            <h2 className="footerName">Policy </h2>
             <a className="footerLink" href="#">
                 Fefund Policy{" "}
             </a>{" "}
