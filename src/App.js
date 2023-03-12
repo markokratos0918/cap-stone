@@ -18,6 +18,7 @@ function App() {
       <Summary/>
       <RecentProject/>
       <Courses />
+      <ClientReview />
       <Video />
     </div>
   );
