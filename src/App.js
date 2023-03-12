@@ -7,6 +7,8 @@ import Summary from './components/Summary/Summary';
 import RecentProject from './components/RecentProject/RecentProject';
 import Courses from './components/Courses/Courses';
 import Video from './components/Video/Video';
+import ClientReView from './components/ClientReView/ClientReview';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -17,9 +19,10 @@ function App() {
       <Analysis/>
       <Summary/>
       <RecentProject/>
-      <Courses />
-      <ClientReview />
+      <Courses /> 
+      <ClientReView />
       <Video />
+      <Footer />
     </div>
   );
 }
