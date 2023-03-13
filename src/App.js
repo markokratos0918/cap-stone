@@ -1,21 +1,13 @@
 import React from 'react';
-import TopNavigation from './components/TopNavigation/TopNavigation';
-import AllCoursePage from './pages/AllCoursePage';
-import PortfolioPage from './pages/PortfolioPage';
-import HomePage from './pages/HomePage';
-import ContactPage from './pages/ContactPage';
-import AllServicePage from './pages/AllServicePage';
+import {BrowserRouter} from "react-router-dom"
+import AppRouter from './router/AppRouter';
 
 function App() {
   return (
-    <div>
-    <HomePage />
-    <TopNavigation />
-    <AllCoursePage />
-    <PortfolioPage />
-    <ContactPage />
-    <AllServicePage/>
-    </div>
+     <BrowserRouter>
+     <AppRouter />
+     </BrowserRouter>
   );
 }
+
 export default App;
