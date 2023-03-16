@@ -1,73 +1,80 @@
 import React, { Component, Fragment } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import RestClient from "../../RestAPI/RestClient";
+import AppUrl from "../../RestAPI/AppUrl";
+import ReactHtmlParser from "react-html-parser";
 
-class RecentProject extends Component {
-	render() {
-		return (
-			<Fragment>
-				<Container className="text-center">
-					<h1 className="serviceMainTitle">Recent Project</h1>
-					<div className="bottom"></div>
-					<Row>
-						<Col lg={4} md={6} sm={12}>
-							<Card className="projectCard">
-								<Card.Img
-									variant="top"
-									src="https://image.freepik.com/free-vector/online-courses-tutorials_52683-37860.jpg"
-								/>
-								<Card.Body>
-									<Card.Title className="serviceName">Project Name1</Card.Title>
-									<Card.Text className="serviceDescription">
-										Some quick example text to build on the card title and make
-										up the bulk of the card's content.
-									</Card.Text>
-									<Button variant="primary">Visit Website</Button>
-								</Card.Body>
-							</Card>
-						</Col>
+class ProjectDetails extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      MyProjectId: props.id,
+      img_two: "...",
+      projectname: "...",
+      project_description: "...",
+      project_features: "...",
+      live_preview: "...",
+    };
+  }
 
-						<Col lg={4} md={6} sm={12}>
-							<Card className="projectCard">
-								<Card.Img
-									variant="top"
-									src="https://image.freepik.com/free-vector/online-tutorials-concept_52683-37481.jpg"
-								/>
-								<Card.Body>
-									<Card.Title className="serviceName">
-										Project Name 2
-									</Card.Title>
-									<Card.Text className="serviceDescription">
-										Some quick example text to build on the card title and make
-										up the bulk of the card's content.
-									</Card.Text>
-									<Button variant="primary">Visit Website</Button>
-								</Card.Body>
-							</Card>
-						</Col>
+  componentDidMount() {
+    RestClient.GetRequest(AppUrl.ProjectDetails + this.state.MyProjectId).then(
+      (result) => {
+        this.setState({
+          img_two: result[0]["img_two"],
+          projectname: result[0]["project_name"],
+          project_description: result[0]["project_description"],
+          project_features: result[0]["project_features"],
+          live_preview: result[0]["live_preview"],
+        });
+      }
+    );
+  }
 
-						<Col lg={4} md={6} sm={12}>
-							<Card className="projectCard">
-								<Card.Img
-									variant="top"
-									src="https://image.freepik.com/free-vector/online-courses-concept_23-2148533386.jpg"
-								/>
-								<Card.Body>
-									<Card.Title className="serviceName">
-										Project Name 3
-									</Card.Title>
-									<Card.Text className="serviceDescription">
-										Some quick example text to build on the card title and make
-										up the bulk of the card's content.
-									</Card.Text>
-									<Button variant="primary">vVist WebSite</Button>
-								</Card.Body>
-							</Card>
-						</Col>
-					</Row>
-				</Container>
-			</Fragment>
-		);
-	}
+  render() {
+    return (
+      <Fragment>
+        <Container className="mt-5">
+          <Row>
+            <Col lg={6} md={6} sm={12}>
+              <div className="about-thumb-wrap after-shape">
+                <img src={this.state.img_two} />
+              </div>
+            </Col>
+
+            <Col lg={6} md={6} sm={12} className="mt-5">
+              <div className="project-details">
+                <h1 className="projectDetailsText">
+                  {" "}
+                  {this.state.projectname}{" "}
+                </h1>
+                <p className="detailsName">
+                  {ReactHtmlParser(
+                    this.state.project_description.substring(0, 200)
+                  )}
+                </p>
+
+                <p className="cardSubTitle text-justify">
+                  {/* <FontAwesomeIcon
+                    className="iconBullent"
+                    icon={faCheckSquare}
+                  /> */}
+                  {ReactHtmlParser(this.state.project_features)}{" "}
+                </p>
+
+                <Button variant="info" href={this.state.live_preview}>
+                  {" "}
+                  Live Preview{" "}
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </Fragment>
+    );
+  }
 }
 
-export default RecentProject;
+export default ProjectDetails;
